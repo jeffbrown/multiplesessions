@@ -13,7 +13,7 @@ class HelperService {
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
-	def doSomethingElse(Person gift) {
-		gift.save()
+	def doSomethingElse(Person person) {
+		person.save()
 	}
 }
