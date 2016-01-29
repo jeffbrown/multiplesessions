@@ -8,12 +8,15 @@ class HelperService {
 
 	def doSomething() {
 		def person = Person.get(1)
-//		person.discard()
+		person.name = 'new name'
+		person.save()
+		person.discard()
 		doSomethingElse(person)
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	def doSomethingElse(Person person) {
 		person.save()
+		println "Name after save: ${person.name}"
 	}
 }
